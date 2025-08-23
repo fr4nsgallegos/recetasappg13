@@ -9,6 +9,7 @@ class RecetaCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom: 8),
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Color(0xff0f4c5c).withOpacity(0.8),
