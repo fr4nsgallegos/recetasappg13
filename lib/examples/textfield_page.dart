@@ -7,6 +7,7 @@ class TextfieldPage extends StatefulWidget {
 
 class _TextfieldPageState extends State<TextfieldPage> {
   TextEditingController _correoController = TextEditingController();
+  String ayuda = "hola necesuto ayuda";
 
   bool _hasError = false;
 
@@ -21,6 +22,16 @@ class _TextfieldPageState extends State<TextfieldPage> {
     _correoController.dispose();
     // TODO: implement dispose
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    _correoController.addListener(() {
+      _validarCorreo();
+      setState(() {});
+    });
+    // TODO: implement initState
+    super.initState();
   }
 
   @override
@@ -50,9 +61,14 @@ class _TextfieldPageState extends State<TextfieldPage> {
                   hintText: "ejemplo@gmail.com",
                   helperText: "Ingresa un correo válido",
                   prefixIcon: Icon(Icons.person),
-                  suffixIcon: _hasError
-                      ? Icon(Icons.cancel)
-                      : Icon(Icons.check_circle),
+                  // suffixIcon: _hasError
+                  //     ? Icon(Icons.cancel)
+                  //     : Icon(Icons.check_circle),
+                  suffixIcon: _correoController.text.isNotEmpty
+                      ? _hasError
+                            ? Icon(Icons.cancel)
+                            : Icon(Icons.check_circle)
+                      : null,
                   suffixIconColor: _hasError ? Colors.red : Colors.green,
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide.none,
