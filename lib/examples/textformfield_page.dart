@@ -29,7 +29,26 @@ class TextformfieldPage extends StatelessWidget {
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(24),
                     ),
+                    errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
                   ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Por favor ingresa tu correo";
+                    } else if (value.length < 6) {
+                      return "El correo debe tener al menor 6 caracteres";
+                    } else if (!RegExp(
+                      "[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}",
+                    ).hasMatch(value)) {
+                      return "Ingrese un correo válido";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(height: 16),
                 TextFormField(
@@ -44,7 +63,36 @@ class TextformfieldPage extends StatelessWidget {
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(24),
                     ),
+                    errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
                   ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Por favor ingresa una contraseña";
+                    } else if (value.length <= 7) {
+                      return "La contaseña debe tener al menor 8 caraceteres";
+                    } else {
+                      return null;
+                    }
+                  },
+                ),
+
+                SizedBox(height: 32),
+                ElevatedButton(
+                  onPressed: () {
+                    // Validando form
+                    if (_formKey.currentState!.validate()) {
+                      print("Formulario validado y enviado");
+                    } else {
+                      print("Hay errores");
+                    }
+                    ;
+                  },
+                  child: Text("Enviar form"),
                 ),
               ],
             ),
