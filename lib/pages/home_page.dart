@@ -3,9 +3,16 @@ import 'package:recetasappg13/models/receta_model.dart';
 import 'package:recetasappg13/widgets/form_item_widget.dart';
 import 'package:recetasappg13/widgets/receta_card_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   TextEditingController _titleController = TextEditingController();
+
   TextEditingController _preparationController = TextEditingController();
+
   TextEditingController _imageController = TextEditingController();
 
   RecetaModel receta1 = RecetaModel(
@@ -19,6 +26,8 @@ class HomePage extends StatelessWidget {
     urlImage:
         "https://cdn.shopify.com/s/files/1/0500/5121/9607/files/wafles.jpg?v=1630701223",
   );
+
+  List<RecetaModel> recetasList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +57,13 @@ class HomePage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    print(_titleController.text);
+                    RecetaModel recetaAux = RecetaModel(
+                      title: _titleController.text,
+                      preparation: _preparationController.text,
+                      urlImage: _imageController.text,
+                    );
+                    recetasList.add(recetaAux);
+                    setState(() {});
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
@@ -56,7 +71,9 @@ class HomePage extends StatelessWidget {
                   ),
                   child: Text("Registrar receta"),
                 ),
-                RecetaCardWidget(recetaModel: receta1),
+                ...recetasList.map(
+                  (receta) => RecetaCardWidget(recetaModel: receta),
+                ),
               ],
             ),
           ),
