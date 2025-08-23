@@ -23,29 +23,51 @@ class ScrollPage extends StatelessWidget {
       body: Column(
         children: [
           Text("Texto estático sin scroll"),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 200,
-              itemBuilder: (BuildContext context, int index) {
-                print(index);
-                return _buildContainer(index);
-              },
-            ),
-          ),
 
           // Expanded(
-          //   child: SingleChildScrollView(
-          //     scrollDirection: Axis.vertical,
-          //     child: Column(
-          //       children: [
-          //         _buildContainer(),
-          //         _buildContainer(),
-          //         _buildContainer(),
-          //         _buildContainer(),
-          //       ],
-          //     ),
+          //   child: ListView.builder(
+          //     itemCount: 200,
+          //     itemBuilder: (BuildContext context, int index) {
+          //       print(index);
+          //       return _buildContainer(index);
+          //     },
           //   ),
           // ),
+          Expanded(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  _buildContainer(1),
+                  SizedBox(
+                    height: 200,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 20,
+                      itemBuilder: (context, index) {
+                        return _buildContainer(index);
+                      },
+                    ),
+                  ),
+                  _buildContainer(2),
+                  _buildContainer(3),
+                  SizedBox(
+                    height: 200,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      separatorBuilder: (context, index) =>
+                          Container(height: 20, width: 5, color: Colors.cyan),
+                      itemCount: 50,
+                      itemBuilder: (BuildContext context, int index) {
+                        return _buildContainer(index);
+                      },
+                    ),
+                  ),
+                  _buildContainer(4),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
