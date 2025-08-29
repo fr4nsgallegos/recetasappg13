@@ -7,6 +7,7 @@ class SliverListbuilderTab extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
+          leading: Container(),
           pinned: true,
           expandedHeight: 140,
           flexibleSpace: FlexibleSpaceBar(

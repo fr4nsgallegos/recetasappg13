@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recetasappg13/models/receta_model.dart';
+import 'package:recetasappg13/pages/sliver/sliver_page.dart';
 import 'package:recetasappg13/widgets/form_item_widget.dart';
 import 'package:recetasappg13/widgets/receta_card_widget.dart';
 
@@ -96,6 +97,15 @@ class _HomePageState extends State<HomePage> {
                     backgroundColor: Color(0xff0f4c5c).withOpacity(0.8),
                   ),
                   child: Text("Registrar receta"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SliverPage()),
+                    );
+                  },
+                  child: Text("Navegación"),
                 ),
                 Expanded(
                   child: SingleChildScrollView(

@@ -6,5 +6,5 @@ import 'package:recetasappg13/pages/scroll_page.dart';
 import 'package:recetasappg13/pages/sliver/sliver_page.dart';
 
 void main() {
-  runApp(MaterialApp(home: SliverPage(), debugShowCheckedModeBanner: false));
+  runApp(MaterialApp(home: HomePage(), debugShowCheckedModeBanner: false));
 }
