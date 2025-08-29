@@ -37,7 +37,6 @@ class SliverListbuilderTab extends StatelessWidget {
             ),
           ),
         ),
-
         SliverToBoxAdapter(
           child: Padding(
             padding: EdgeInsetsGeometry.all(16),

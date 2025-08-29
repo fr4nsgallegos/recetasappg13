@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recetasappg13/pages/sliver/sliver_listbuilder_tab.dart';
+import 'package:recetasappg13/pages/sliver/sliver_listdelegate_tab.dart';
 
 class SliverPage extends StatelessWidget {
   const SliverPage({super.key});
@@ -18,7 +19,9 @@ class SliverPage extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(children: [SliverListbuilderTab(), Text("Perfil")]),
+        body: TabBarView(
+          children: [SliverListbuilderTab(), SliverListdelegateTab()],
+        ),
       ),
     );
   }
