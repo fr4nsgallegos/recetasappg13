@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class DropdownWidget extends StatelessWidget {
-  const DropdownWidget({super.key});
+  List<String> options;
+  final Function(String?) funcionOnChanged;
+
+  DropdownWidget({required this.options, required this.funcionOnChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +29,20 @@ class DropdownWidget extends StatelessWidget {
       icon: Icon(Icons.arrow_drop_down),
       iconEnabledColor: Colors.white,
       menuMaxHeight: 150,
-      items: [
-        DropdownMenuItem(value: "primera", child: Text("OPción 1")),
-        DropdownMenuItem(value: "Ssegunda", child: Text("OPción 2")),
-        DropdownMenuItem(value: "a", child: Text("OPción 2")),
-        DropdownMenuItem(value: "s", child: Text("OPción 2")),
-        DropdownMenuItem(value: "d", child: Text("OPción 2")),
-      ],
-      onChanged: (value) {
-        print(value);
-      },
+      items: options.map((option) {
+        return DropdownMenuItem(value: option, child: Text(option));
+      }).toList(),
+      //  [
+      //   DropdownMenuItem(value: "primera", child: Text("OPción 1")),
+      //   DropdownMenuItem(value: "Ssegunda", child: Text("OPción 2")),
+      //   DropdownMenuItem(value: "a", child: Text("OPción 2")),
+      //   DropdownMenuItem(value: "s", child: Text("OPción 2")),
+      //   DropdownMenuItem(value: "d", child: Text("OPción 2")),
+      // ],
+      onChanged: funcionOnChanged,
+      //  (value) {
+      //   print(value);
+      // },
     );
   }
 }

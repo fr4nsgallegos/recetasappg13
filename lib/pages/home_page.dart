@@ -12,12 +12,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController _titleController = TextEditingController();
-
-  TextEditingController _preparationController = TextEditingController();
-
-  TextEditingController _imageController = TextEditingController();
-
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _preparationController = TextEditingController();
+  final TextEditingController _imageController = TextEditingController();
+  final List<String> _options = ["Entrada", "Plato de fondo", "Postre"];
+  String? _selectedOption;
   RecetaModel receta1 = RecetaModel(
     title: "Wafles",
     preparation:
@@ -28,6 +27,7 @@ class _HomePageState extends State<HomePage> {
         ¡A disfrutar!''',
     urlImage:
         "https://cdn.shopify.com/s/files/1/0500/5121/9607/files/wafles.jpg?v=1630701223",
+    type: "Postre",
   );
 
   List<RecetaModel> recetasList = [
@@ -41,6 +41,7 @@ class _HomePageState extends State<HomePage> {
         ¡A disfrutar!''',
       urlImage:
           "https://cdn.shopify.com/s/files/1/0500/5121/9607/files/wafles.jpg?v=1630701223",
+      type: "Postre",
     ),
     RecetaModel(
       title: "Ceviche",
@@ -50,8 +51,17 @@ El ceviche puede hacerse con un aderezo simple de lima, lo único necesario para
 En cuanto a la elección del pez, puedes elegir el que quieras, pero es importante que esté fresco y que sea blanco, así que pregunta a tu pescadero y que te de el que tenga mejor. Yo usé lomos de merluza, que me parece que es una de las mejores opciones.''',
       urlImage:
           "https://images.pexels.com/photos/31495670/pexels-photo-31495670.jpeg?_gl=1*v0pvc6*_ga*ODI4MzUxMDczLjE3MjI2NDc0MzI.*_ga_8JE65Q40S6*czE3NTY1MjQ3ODgkbzY4JGcxJHQxNzU2NTI0Nzk1JGo1MyRsMCRoMA..",
+      type: "Plato de fondo",
     ),
   ];
+
+  void showError(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message, style: TextStyle(color: Colors.red)),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,13 +89,47 @@ En cuanto a la elección del pez, puedes elegir el que quieras, pero es importan
                   hint: "Ingresa el url de la imagen",
                   iconData: Icons.image,
                 ),
-                DropdownWidget(),
+                DropdownWidget(
+                  options: _options,
+                  funcionOnChanged: (value) {
+                    _selectedOption = value;
+                  },
+                ),
                 ElevatedButton(
                   onPressed: () {
+                    if (_titleController.text.isEmpty ||
+                        _titleController.text.length < 5) {
+                      showError(
+                        context,
+                        "El título debe tener al menos 5 caracteres",
+                      );
+                      return;
+                    }
+                    if (_preparationController.text.isEmpty ||
+                        _preparationController.text.length < 20) {
+                      showError(
+                        context,
+                        "El título debe tener al menos 20 caracteres",
+                      );
+                      return;
+                    }
+                    if (_imageController.text.isEmpty ||
+                        _imageController.text.length < 10) {
+                      showError(
+                        context,
+                        "El título debe tener al menos 10 caracteres",
+                      );
+                      return;
+                    }
+                    if (_selectedOption == null) {
+                      showError(context, "Seleccione un tipo de plato");
+                      return;
+                    }
                     RecetaModel recetaAux = RecetaModel(
                       title: _titleController.text,
                       preparation: _preparationController.text,
                       urlImage: _imageController.text,
+                      type: _selectedOption!,
                     );
                     recetasList.add(recetaAux);
                     _titleController.clear();
