@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recetasappg13/models/receta_model.dart';
-import 'package:recetasappg13/pages/recipe_page.dart';
+import 'package:recetasappg13/pages/recipe/recipe_page.dart';
 
 class RecetaCardWidget extends StatelessWidget {
   RecetaModel recetaModel;
