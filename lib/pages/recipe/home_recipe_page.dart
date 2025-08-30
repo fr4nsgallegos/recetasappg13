@@ -6,12 +6,12 @@ import 'package:recetasappg13/widgets/dropdown_widget.dart';
 import 'package:recetasappg13/widgets/form_item_widget.dart';
 import 'package:recetasappg13/widgets/receta_card_widget.dart';
 
-class HomePage extends StatefulWidget {
+class HomeRecipePage extends StatefulWidget {
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeRecipePage> createState() => _HomeRecipePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeRecipePageState extends State<HomeRecipePage> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _preparationController = TextEditingController();
   final TextEditingController _imageController = TextEditingController();
