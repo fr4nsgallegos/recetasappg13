@@ -46,6 +46,14 @@ class HomeNavigatorPage extends StatelessWidget {
               },
               child: Text("pushnamed a /detail con argumentos"),
             ),
+            SizedBox(height: 16),
+            // 2. Reemplazar la pantalla actual por About sin permitirme volver
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, "/about");
+              },
+              child: Text("Pushreplacemente a /About"),
+            ),
           ],
         ),
       ),
@@ -97,7 +105,24 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: Text("About page")),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("Pantalla about"),
+            SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Volver pop"),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
