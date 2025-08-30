@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recetasappg13/models/receta_model.dart';
 import 'package:recetasappg13/pages/sliver/sliver_page.dart';
+import 'package:recetasappg13/pages/tabbar/tabbar_page.dart';
 import 'package:recetasappg13/widgets/form_item_widget.dart';
 import 'package:recetasappg13/widgets/receta_card_widget.dart';
 
@@ -102,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SliverPage()),
+                      MaterialPageRoute(builder: (context) => TabbarPage()),
                     );
                   },
                   child: Text("Navegación"),

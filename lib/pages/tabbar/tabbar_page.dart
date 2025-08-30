@@ -21,8 +21,68 @@ class TabbarPage extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(children: [Text("1"), Text("2"), Text("3")]),
+        body: TabBarView(
+          children: [InicioTab(), FavoritesTab(), SettingsTab()],
+        ),
       ),
     );
+  }
+}
+
+class InicioTab extends StatefulWidget {
+  @override
+  State<InicioTab> createState() => _InicioTabState();
+}
+
+class _InicioTabState extends State<InicioTab>
+    with AutomaticKeepAliveClientMixin {
+  int _counter = 0;
+
+  @override
+  bool get wantKeepAlive => true; //mantener el estado al cambiar de tab
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("InicioTab")),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("pestaña inicio"),
+            SizedBox(height: 16),
+            Text(
+              "Contador: $_counter",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+            FilledButton(
+              onPressed: () {
+                _counter++;
+                setState(() {});
+              },
+              child: Text("Incrementar"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class FavoritesTab extends StatelessWidget {
+  const FavoritesTab({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar: AppBar(title: Text("FavoritesTab")));
+  }
+}
+
+class SettingsTab extends StatelessWidget {
+  const SettingsTab({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar: AppBar(title: Text("SettingsTab")));
   }
 }
