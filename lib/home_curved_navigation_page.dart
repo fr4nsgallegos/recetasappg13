@@ -19,6 +19,7 @@ class _HomeCurvedNavigationPageState extends State<HomeCurvedNavigationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
+        index: _activePageIndex,
         items: pageDetails.map((page) => Icon(page.icon)).toList(),
         onTap: (index) {
           pageController.animateToPage(
