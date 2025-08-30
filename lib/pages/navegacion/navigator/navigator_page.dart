@@ -46,13 +46,46 @@ class HomeNavigatorPage extends StatelessWidget {
               },
               child: Text("pushnamed a /detail con argumentos"),
             ),
+
             SizedBox(height: 16),
+
             // 2. Reemplazar la pantalla actual por About sin permitirme volver
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacementNamed(context, "/about");
               },
               child: Text("Pushreplacemente a /About"),
+            ),
+
+            SizedBox(height: 16),
+
+            // 3. Ir a aabout limpioando completamente el stack (no hay back)
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  "/about",
+                  (route) => false,
+                );
+              },
+              child: Text("pushNamedAndRemoveUntil a /About (limpia el Stack)"),
+            ),
+
+            SizedBox(height: 16),
+
+            ElevatedButton(
+              onPressed: () async {
+                final value = await Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => InlinePage()),
+                );
+                if (context.mounted && value != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Volvio de Inline $value")),
+                  );
+                }
+              },
+              child: Text("push con Materialpageroute sin nombre"),
             ),
           ],
         ),
@@ -131,6 +164,21 @@ class InlinePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: Text("Inline Page")),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context, "Resultado desde inline");
+              },
+              child: Text("POp con resultado"),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
