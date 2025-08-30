@@ -13,16 +13,29 @@ class TabbarPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text("Ejemplo de tabbar"),
-          bottom: TabBar(
-            tabs: [
-              Tab(icon: Icon(Icons.home), text: "Home"),
-              Tab(icon: Icon(Icons.favorite), child: Text("Favorites")),
-              Tab(icon: Icon(Icons.settings), text: "Configuracion"),
-            ],
-          ),
+          // bottom: TabBar(
+          //   tabs: [
+          //     Tab(icon: Icon(Icons.home), text: "Home"),
+          //     Tab(icon: Icon(Icons.favorite), child: Text("Favorites")),
+          //     Tab(icon: Icon(Icons.settings), text: "Configuracion"),
+          //   ],
+          // ),
         ),
         body: TabBarView(
           children: [InicioTab(), FavoritesTab(), SettingsTab()],
+        ),
+        // MOSTRAR EL TABBAR EN LA PARTE DE ABAJO DEL SCAFFOLD
+        bottomNavigationBar: Material(
+          child: SafeArea(
+            top: false,
+            child: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.home), text: "Home"),
+                Tab(icon: Icon(Icons.favorite), child: Text("Favorites")),
+                Tab(icon: Icon(Icons.settings), text: "Configuracion"),
+              ],
+            ),
+          ),
         ),
       ),
     );
