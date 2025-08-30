@@ -42,15 +42,13 @@ class _HomePageState extends State<HomePage> {
           "https://cdn.shopify.com/s/files/1/0500/5121/9607/files/wafles.jpg?v=1630701223",
     ),
     RecetaModel(
-      title: "Wafles",
+      title: "Ceviche",
       preparation:
-          '''Primero agregamos la leche, huevos, azúcar, sal y esencia de vainilla en nuestra licuadora y mezclamos bien durante 2 minutos.
-        Luego con un colador tamizamos la harina y el polvo de hornear. Luego los incluimos en la mezcla anterior y mezclamos hasta formar una pasta lisa y uniforme.
-        Calentamos la waflera a la temperatura deseada y rociamos aceite en spray. Luego, colocamos la mezcla dentro y dejamos cocinar.
-        Una vez listo, retirar el waffle, disponer sobre un plato y decorar con crema chantilly, frutillas, arándanos, hojas de menta y un generoso chorro de miel.
-        ¡A disfrutar!''',
+          '''El ceviche es uno de esos platos que parecen súper refinados, pero que realmente es tremendamente sencillo de hacer en casa. Ha tomado mucha popularidad en los últimos años en España, pero no dejar de ser un plato del día a día en Latinoamérica, más concretamente en Perú, que es de donde proviene. 
+El ceviche puede hacerse con un aderezo simple de lima, lo único necesario para cocinar ligeramente el pescado y darle su textura característica, pero en este vídeo vamos a hacer una leche de tigre, una especie de caldo frío con sabores cítricos que acompaña de maravilla al pescado. 
+En cuanto a la elección del pez, puedes elegir el que quieras, pero es importante que esté fresco y que sea blanco, así que pregunta a tu pescadero y que te de el que tenga mejor. Yo usé lomos de merluza, que me parece que es una de las mejores opciones.''',
       urlImage:
-          "https://cdn.shopify.com/s/files/1/0500/5121/9607/files/wafles.jpg?v=1630701223",
+          "https://images.pexels.com/photos/31495670/pexels-photo-31495670.jpeg?_gl=1*v0pvc6*_ga*ODI4MzUxMDczLjE3MjI2NDc0MzI.*_ga_8JE65Q40S6*czE3NTY1MjQ3ODgkbzY4JGcxJHQxNzU2NTI0Nzk1JGo1MyRsMCRoMA..",
     ),
   ];
 

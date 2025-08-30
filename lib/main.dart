@@ -9,5 +9,5 @@ import 'package:recetasappg13/pages/sliver/sliver_page.dart';
 import 'package:recetasappg13/pages/tabbar/tabbar_page.dart';
 
 void main() {
-  runApp(MaterialApp(home: TabbarPage(), debugShowCheckedModeBanner: false));
+  runApp(MaterialApp(home: HomePage(), debugShowCheckedModeBanner: false));
 }
