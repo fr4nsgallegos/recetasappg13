@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recetasappg13/models/receta_model.dart';
 import 'package:recetasappg13/pages/sliver/sliver_page.dart';
 import 'package:recetasappg13/pages/tabbar/tabbar_page.dart';
+import 'package:recetasappg13/widgets/dropdown_widget.dart';
 import 'package:recetasappg13/widgets/form_item_widget.dart';
 import 'package:recetasappg13/widgets/receta_card_widget.dart';
 
@@ -78,6 +79,7 @@ En cuanto a la elección del pez, puedes elegir el que quieras, pero es importan
                   hint: "Ingresa el url de la imagen",
                   iconData: Icons.image,
                 ),
+                DropdownWidget(),
                 ElevatedButton(
                   onPressed: () {
                     RecetaModel recetaAux = RecetaModel(
@@ -97,6 +99,7 @@ En cuanto a la elección del pez, puedes elegir el que quieras, pero es importan
                   ),
                   child: Text("Registrar receta"),
                 ),
+
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
