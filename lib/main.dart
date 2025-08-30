@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recetasappg13/examples/textfield_page.dart';
 import 'package:recetasappg13/examples/textformfield_page.dart';
+import 'package:recetasappg13/home_curved_navigation_page.dart';
 import 'package:recetasappg13/pages/calculator/calculator_page.dart';
 import 'package:recetasappg13/pages/recipe/home_recipe_page.dart';
 import 'package:recetasappg13/pages/navegacion/gorouter_page.dart';
@@ -11,6 +12,9 @@ import 'package:recetasappg13/pages/tabbar/tabbar_page.dart';
 
 void main() {
   runApp(
-    MaterialApp(home: CalculatorPage(), debugShowCheckedModeBanner: false),
+    MaterialApp(
+      home: HomeCurvedNavigationPage(),
+      debugShowCheckedModeBanner: false,
+    ),
   );
 }
