@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:recetasappg13/pages/calculator/button_model.dart';
+import 'package:recetasappg13/pages/calculator/button_widget.dart';
 
 class CalculatorPage extends StatelessWidget {
   const CalculatorPage({super.key});
+
+  Widget _buildRowButton(List<ButtonModel> lista) {
+    return Row(
+      children: lista
+          .map(
+            (elemento) => Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: ButtonWidget(elemento.texto),
+              ),
+            ),
+          )
+          .toList(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +41,22 @@ class CalculatorPage extends StatelessWidget {
             child: Text(
               "123",
               style: TextStyle(color: Colors.white, fontSize: 65),
+            ),
+          ),
+          SizedBox(height: 16),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _buildRowButton(fila1),
+                  _buildRowButton(fila2),
+                  _buildRowButton(fila3),
+                  _buildRowButton(fila4),
+                  _buildRowButton(fila5),
+                ],
+              ),
             ),
           ),
         ],
