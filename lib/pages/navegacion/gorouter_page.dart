@@ -27,6 +27,13 @@ class GorouterPage extends StatelessWidget {
           return DetailRouterPage(id: id, from: from);
         },
       ),
+
+      // Ruta simple
+      GoRoute(
+        path: "/about",
+        name: "about",
+        builder: (context, state) => AboutRouterPage(),
+      ),
     ],
   );
 
@@ -62,6 +69,16 @@ class HomeRouterPage extends StatelessWidget {
                 }
               },
               child: Text("Push a /detail/123? from=home"),
+            ),
+
+            SizedBox(height: 16),
+
+            // 2. Navegar go reemplazar - No apila
+            ElevatedButton(
+              onPressed: () async {
+                context.go("/about"); //reemplaza la ruta actual
+              },
+              child: Text("go a /About (reemplaza)"),
             ),
           ],
         ),
@@ -104,6 +121,22 @@ class AboutRouterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(title: Text("About Page")),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("Pantalla about"),
+            ElevatedButton(
+              onPressed: () {
+                context.pop();
+              },
+              child: Text("volver pop"),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
